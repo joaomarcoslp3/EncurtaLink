@@ -14,7 +14,6 @@ export const Logo = styled.Image`
 
 export const ContainerContent = styled.View `
   margin-top: ${Platform.OS === 'ios' ? 25+'%' : 15+'%'};
-
 `
 
 export const Title = styled.Text `

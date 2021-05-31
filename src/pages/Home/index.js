@@ -23,11 +23,11 @@ export const Home = () => {
           <BoxIcon>
             <Feather name='link' size={22} color='#FFF' />
           </BoxIcon>
-          <Input placeholder='Cole seu link aqui...' placeholderTextColor = "#FFF" />
+          <Input placeholder='Cole seu link aqui...' placeholderTextColor='#FFF' autoCapitalize='none' />
         </ContainerInput>
 
         <ButtonLink>
-          <ButtonLinkText>Gerar link</ButtonLinkText>
+          <ButtonLinkText onPress={() => alert('Not yet amigo')}>Gerar link</ButtonLinkText>
         </ButtonLink>
       </ContainerContent>
     </LinearGradient>
