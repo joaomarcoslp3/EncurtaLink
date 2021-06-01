@@ -1,16 +1,24 @@
 import React from 'react'
-import { Container, TilteContainer, Title } from './styles'
-import { Menu, StatusBarPage } from '../../components'
+import { Container, ListLinks, Title } from './styles'
+import { ListItem, Menu, StatusBarPage } from '../../components'
 
 export const MyLinks = () => {
   return (
-    <Container style={{ backgroundColor: '#132742', flex: 1 }}>
+    <Container>
       <StatusBarPage backgroundColor='#132742' barStyle='light-content' />
       <Menu />
 
-      <TilteContainer>
-        <Title>Meus links</Title>
-      </TilteContainer>
+      <Title>Meus links</Title>
+
+      <ListLinks 
+        data={[{id: 1, url: 'ueum.eu'}]}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => (
+          <ListItem url={item.url} />
+        )}
+        contentContainerStyle={{ paddingBottom: 20 }}
+        showsVerticalScrollIndicator={false}
+      />
     </Container>
   )
 }

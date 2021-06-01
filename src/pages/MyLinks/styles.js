@@ -6,13 +6,14 @@ export const Container = styled.View `
   flex: 1;
 `
 
-export const TilteContainer = styled.View `
-  margin-top: ${Platform.OS === 'ios' ? 35+'%' : 20+'%'};
-  padding-left: 20px;
-`
-
 export const Title = styled.Text `
+  margin-top: ${Platform.OS === 'ios' ? 35+'%' : 20+'%'};
+  margin-left: 20px;
   color: #FFF;
   font-size: 33px;
-  font-weight: bold
+  font-weight: bold;
+`
+
+export const ListLinks = styled.FlatList `
+  
 `
