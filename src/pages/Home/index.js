@@ -3,6 +3,7 @@ import { TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform, Mod
 import { Feather } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import api from '../../services/api'
+import { saveLink } from '../../utils/storeLinks'
 import { Menu, ModalLink, StatusBarPage } from '../../components'
 import { ContainerLogo, Logo, ContainerContent, Title, Subtitle, ContainerInput, BoxIcon, Input,
   ButtonLink, ButtonLinkText } from './styles'
@@ -20,10 +21,12 @@ export const Home = () => {
       const response = await api.post('/shorten', {
         long_url: link
       })
+
       Keyboard.dismiss()
-      setIsModalOpen(true)
-      setLoading(false)
       setLinkData(response.data)
+      setIsModalOpen(true)
+      saveLink('@encurta:links', response.data)
+      setLoading(false)
       setLink('')
     } catch (err) {
       alert('Ops, houve um erro com seu requisição, tente novamente')
