@@ -15,7 +15,7 @@ export const ModalLink = (props) => {
 
   const handleShare = async () => {
     try {
-      const result = await Share.share({
+      await Share.share({
         message: `Link: ${link}`
       })
     } catch (err) {

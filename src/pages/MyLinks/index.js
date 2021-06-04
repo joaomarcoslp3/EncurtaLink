@@ -17,7 +17,7 @@ export const MyLinks = () => {
         renderItem={({ item }) => (
           <ListItem url={item.url} />
         )}
-        contentContainerStyle={{ paddingBottom: 20 }}
+        contentContainerStyle={{ paddingBottom: 22 }}
         showsVerticalScrollIndicator={false}
       />
     </Container>
