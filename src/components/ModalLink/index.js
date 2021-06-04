@@ -5,17 +5,18 @@ import { Feather } from '@expo/vector-icons'
 import { ModalContainer, Container, Header, LinkArea, Title, LongUrl, ShortLinkArea, ShortLinkUrl } from './styles'
 
 export const ModalLink = (props) => {
-  const { onClose } = props
+  const { onClose, linkData } = props
+  const { long_url, link } = linkData 
 
   const copyLink = () => {
-    Clipboard.setString('UEUM')
-    alert('vai nenem')
+    Clipboard.setString(link)
+    alert('Link copiado com sucesso.')
   }
 
   const handleShare = async () => {
     try {
       const result = await Share.share({
-        message: `Link: UEUM`
+        message: `Link: ${link}`
       })
     } catch (err) {
       console.log(err.message)
@@ -39,10 +40,10 @@ export const ModalLink = (props) => {
 
         <LinkArea>
           <Title>Link encurtado</Title>
-          <LongUrl numberOfLines={1}>https://jonas.com</LongUrl>
+          <LongUrl numberOfLines={1}>{long_url}</LongUrl>
 
           <ShortLinkArea activeOpacity={1} onPress={copyLink}>
-            <ShortLinkUrl numberOfLines={1}>https://bit.ly/aopa74</ShortLinkUrl>
+            <ShortLinkUrl numberOfLines={1}>{link}</ShortLinkUrl>
             <TouchableOpacity onPress={copyLink}>
               <Feather name='copy' color='#FFF' size={25} />
             </TouchableOpacity>
